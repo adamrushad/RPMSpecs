@@ -1,0 +1,2 @@
+# Insert any arguments needed for miniupnpd on your system here.
+MINIUPNPD_OPTIONS=""
