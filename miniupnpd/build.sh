@@ -10,7 +10,6 @@ cd ${WORKSPACE}
 
 mkdir -p ${WORKSPACE}/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 echo -e "%_topdir\t$WORKSPACE/rpmbuild" > ${HOME}/.rpmmacros
-cat ${HOME}/.rpmmacros
 
 curl -O https://raw.githubusercontent.com/adamrushad/RPMSpecs/master/miniupnpd/miniupnpd.spec
 sed -i -e "s/__VERSION__/${MY_VERSION}_${MY_DATE}/" miniupnpd.spec
@@ -19,7 +18,7 @@ mv miniupnpd.spec ${WORKSPACE}/rpmbuild/SPECS/
 cd ${WORKSPACE}/rpmbuild/SOURCES/
 curl -O https://raw.githubusercontent.com/adamrushad/RPMSpecs/master/miniupnpd/miniupnpd
 curl -O https://raw.githubusercontent.com/adamrushad/RPMSpecs/master/miniupnpd/miniupnpd.service
-cd ${WORDSPACE}
+cd ${WORKSPACE}
 
 cp -r miniupnp/miniupnpd miniupnpd-${MY_VERSION}_${MY_DATE}
 tar czf miniupnpd-${MY_VERSION}_${MY_DATE}.tar.gz miniupnpd-${MY_VERSION}_${MY_DATE}/
