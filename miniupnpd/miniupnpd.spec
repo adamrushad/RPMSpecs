@@ -25,7 +25,7 @@ CONFIG_OPTIONS="--ipv6 --strict --vendorcfg --pcp-peer --portinuse" make -f Make
 make -f Makefile.linux check
 
 %install
-make -f Makefile.linux install
+PREFIX="%{buildroot}" make -f Makefile.linux install
 install miniupnpdctl %{buildroot}/%{_sbindir}/miniupnpdctl
 
 %files
@@ -34,7 +34,7 @@ install miniupnpdctl %{buildroot}/%{_sbindir}/miniupnpdctl
 %doc INSTALL
 %{_sbindir}/miniupnpd
 %{_sbindir}/miniupnpdctl
-%{_sysconfdir}/miniupnpd/miniupnpd.conf
+%config(noreplace) %{_sysconfdir}/miniupnpd/miniupnpd.conf
 %{_sysconfdir}/miniupnpd/netfilter/iptables_init.sh
 %{_sysconfdir}/miniupnpd/netfilter/iptables_removeall.sh
 %{_sysconfdir}/miniupnpd/netfilter/ip6tables_init.sh
