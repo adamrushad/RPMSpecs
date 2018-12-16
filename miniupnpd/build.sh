@@ -28,6 +28,3 @@ mv miniupnpd-${MY_VERSION}_${MY_DATE}.tar.gz ${WORKSPACE}/rpmbuild/SOURCES/
 rm -rf miniupnpd-${MY_VERSION}_${MY_DATE}/
 
 rpmbuild -ba ${WORKSPACE}/rpmbuild/SPECS/miniupnpd.spec
-find ${WORKSPACE}/rpmbuild/
-/usr/bin/false
-echo "Failure?"
