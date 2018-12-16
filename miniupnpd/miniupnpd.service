@@ -4,7 +4,7 @@ Documentation=man:miniupnpd(8)
 After=network.target
 
 [Service]
-EnvironmentFile=/etc/sysconfig/miniupnpd.conf
+EnvironmentFile=/etc/sysconfig/miniupnpd
 Type=forking
 ExecStartPre=-/etc/miniupnpd/iptables_init.sh
 ExecStartPre=-/etc/miniupnpd/ip6tables_init.sh
