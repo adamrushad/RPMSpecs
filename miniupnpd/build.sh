@@ -29,4 +29,5 @@ rm -rf miniupnpd-${MY_VERSION}_${MY_DATE}/
 
 rpmbuild -ba ${WORKSPACE}/rpmbuild/SPECS/miniupnpd.spec
 find ${WORKSPACE}/rpmbuild/
-false
+/usr/bin/false
+echo "Failure?"
