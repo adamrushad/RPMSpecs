@@ -51,9 +51,11 @@ install miniupnpdctl %{buildroot}%{_sbindir}/miniupnpdctl
 %{_sbindir}/miniupnpd
 %{_sbindir}/miniupnpdctl
 %config(noreplace) %{_sysconfdir}/miniupnpd/miniupnpd.conf
+%config(noreplace) %{_sysconfdir}/sysconfig/miniupnpd
 %{_sysconfdir}/miniupnpd/iptables_init.sh
 %{_sysconfdir}/miniupnpd/iptables_removeall.sh
 %{_sysconfdir}/miniupnpd/ip6tables_init.sh
 %{_sysconfdir}/miniupnpd/ip6tables_removeall.sh
 %{_sysconfdir}/miniupnpd/miniupnpd_functions.sh
 %{_mandir}/man8/miniupnpd.8.gz
+%{_unitdir}/miniupnpd.service
