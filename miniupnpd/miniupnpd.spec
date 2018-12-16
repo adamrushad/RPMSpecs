@@ -27,6 +27,7 @@ make -f Makefile.linux check
 %install
 PREFIX="%{buildroot}" make -f Makefile.linux install
 install miniupnpdctl %{buildroot}%{_sbindir}/miniupnpdctl
+rm %{buildroot}%{_sysconfdir}/init.d/miniupnpd
 
 %files
 %license LICENSE
