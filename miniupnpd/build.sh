@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 yum -y install iptables-devel openssl-devel which iproute
 
 cd miniupnp
@@ -27,3 +29,4 @@ rm -rf miniupnpd-${MY_VERSION}_${MY_DATE}/
 
 rpmbuild -ba ${WORKSPACE}/rpmbuild/SPECS/miniupnpd.spec
 find ${WORKSPACE}/rpmbuild/
+false
