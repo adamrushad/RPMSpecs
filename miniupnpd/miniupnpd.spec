@@ -26,7 +26,7 @@ make -f Makefile.linux check
 
 %install
 PREFIX="%{buildroot}" make -f Makefile.linux install
-install miniupnpdctl %{buildroot}/%{_sbindir}/miniupnpdctl
+install miniupnpdctl %{buildroot}%{_sbindir}/miniupnpdctl
 
 %files
 %license LICENSE
@@ -35,9 +35,9 @@ install miniupnpdctl %{buildroot}/%{_sbindir}/miniupnpdctl
 %{_sbindir}/miniupnpd
 %{_sbindir}/miniupnpdctl
 %config(noreplace) %{_sysconfdir}/miniupnpd/miniupnpd.conf
-%{_sysconfdir}/miniupnpd/netfilter/iptables_init.sh
-%{_sysconfdir}/miniupnpd/netfilter/iptables_removeall.sh
-%{_sysconfdir}/miniupnpd/netfilter/ip6tables_init.sh
-%{_sysconfdir}/miniupnpd/netfilter/ip6tables_removeall.sh
-%{_sysconfdir}/miniupnpd/netfilter/miniupnpd_functions.sh
+%{_sysconfdir}/miniupnpd/iptables_init.sh
+%{_sysconfdir}/miniupnpd/iptables_removeall.sh
+%{_sysconfdir}/miniupnpd/ip6tables_init.sh
+%{_sysconfdir}/miniupnpd/ip6tables_removeall.sh
+%{_sysconfdir}/miniupnpd/miniupnpd_functions.sh
 %{_mandir}/man8/miniupnpd.8.gz
