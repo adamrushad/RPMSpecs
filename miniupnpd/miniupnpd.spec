@@ -4,11 +4,15 @@ Version: __VERSION__
 Release: 1%{?dist}
 License: MINIUPNP
 Group: Applications/Network
-Source: %{name}-%{version}.tar.gz
+
+Source0: %{name}-%{version}.tar.gz
+Source1: miniupnpd
+Source2: miniupnpd.service
+
 URL: http://miniupnp.free.fr/
 Packager: AdamRushad
 BuildRequires: iptables-devel openssl-devel which iproute util-linux
-Requires: iptables openssl-libs util-linux
+Requires: iptables openssl-libs util-linux systemd
 
 %description
 Implements the Universal Plug and Play Internet
@@ -26,8 +30,19 @@ make -f Makefile.linux check
 
 %install
 PREFIX="%{buildroot}" make -f Makefile.linux install
+rm -f %{buildroot}%{_sysconfdir}/init.d/miniupnpd
+install -D -m0755 %{SOURCE1} %{buildroot}%{_sysconfdir}/sysconfig/miniupnpd
+install -D -m0644 %{SOURCE2} %{buildroot}%{_unitdir}/miniupnpd.service
 install miniupnpdctl %{buildroot}%{_sbindir}/miniupnpdctl
-rm %{buildroot}%{_sysconfdir}/init.d/miniupnpd
+
+%post
+%systemd_post miniupnpd.service
+
+%preun
+%systemd_preun miniupnpd.service
+
+%postun
+%systemd_postun_with_restart miniupnpd.service
 
 %files
 %license LICENSE
