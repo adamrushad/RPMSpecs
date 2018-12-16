@@ -2,7 +2,7 @@ Summary: UPnP IGD
 Name: miniupnpd
 Version: __VERSION__
 Release: 1%{?dist}
-License: Thomas_BERNARD
+License: MINIUPNP
 Group: Applications/Network
 Source: %{name}-%{version}.tar.gz
 URL: http://miniupnp.free.fr/
