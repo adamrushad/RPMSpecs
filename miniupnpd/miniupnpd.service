@@ -1,0 +1,20 @@
+[Unit]
+Description=Miniature Universal Plug and Play Internet Gateway Device
+Documentation=man:miniupnpd(8)
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/miniupnpd.conf
+Type=forking
+ExecStartPre=-/etc/miniupnpd/iptables_init.sh
+ExecStartPre=-/etc/miniupnpd/ip6tables_init.sh
+ExecStart=/usr/sbin/miniupnpd -f /etc/miniupnpd/miniupnpd.conf ${MINIUPNPD_OPTIONS}
+ExecStopPost=-/etc/miniupnpd/iptables_removeall.sh
+ExecStopPost=-/etc/miniupnpd/ip6tables_removeall.sh
+
+Restart=always
+RestartSec=1
+TimeoutSec=5
+
+[Install]
+WantedBy=multi-user.target
